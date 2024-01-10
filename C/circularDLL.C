@@ -8,25 +8,26 @@ typedef struct DLL
 node *head;
 node* getnode()
 {
-    node *t;
+    node *temp;
     int n;
-    t=(node)malloc(sizeof(node));
-    if(t==NULL)
+    temp=(node*)malloc(sizeof(node));
+    if(temp==NULL)
     {
         printf("not found");
     }
     else{
         printf("enter the data ");
         scanf("%d",&n);
-        t->data=n;
-        t->right=NULL;
-        t->left=NULL;
+        temp->data=n;
+        temp->right=NULL;
+        temp->left=NULL;
     }
-    return t;
+    return temp;
 }
 void insertend()
 {
     node *curr,*temp;
+    temp=getnode();
     if(head==NULL)
          head=temp;
     else{
@@ -88,11 +89,12 @@ int main()
     int i;
     while(1)
     {
-        printf("\n1 for inster, 2 for display, 3 for exit");
-        scanf("%d",&i);
+        printf("\n1 for inster, 2 for delet,3 for display, 3 for exit");
+        scanf(" %d",&i);
         switch(i)
         {
             case 1:insertend();
+                    printf("iam in");
                      break;
             case 2:deletend();
                      break;
