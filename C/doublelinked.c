@@ -41,14 +41,27 @@ struct stu{
             }
         }
     }
+    void deletend()
+    {
+        node *curr,*prev;
+        curr=head;
+        while(curr!=NULL)
+        {
+            prev=curr;
+            curr=curr->right;
+        }
+        prev->right=NULL;
+        free(curr);
+    }
     void display()
     {
         node *curr;
         int count=0;
         curr=head;
+        printf("the elements are");
         while(curr!=NULL)
         {
-            printf(" the elements are %d",curr->data);
+            printf("%d",curr->data);
             printf("\n");
             count++;
             curr=curr->right;
@@ -67,7 +80,9 @@ struct stu{
                        break;
                 case 2:display();
                        break;
-                case 3:exit(0);
+                case 3:deletend();
+                       break;
+                case 4:exit(0);
                 default: printf("invalid choice");
             }
            
