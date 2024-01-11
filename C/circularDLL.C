@@ -9,20 +9,21 @@ node *head;
 node* getnode()
 {
     node *temp;
-    int n;
+    
     temp=(node*)malloc(sizeof(node));
     if(temp==NULL)
     {
-        printf("not found");
+        printf("memory not allcoted");
     }
     else{
         printf("enter the data ");
-        scanf("%d",&n);
-        temp->data=n;
+        scanf("%d",&temp->data);
+        
         temp->right=NULL;
         temp->left=NULL;
-    }
+     }
     return temp;
+   
 }
 void insertend()
 {
@@ -31,18 +32,19 @@ void insertend()
     if(head==NULL)
          head=temp;
     else{
-        if(head->right=NULL)
+        if(head->right==NULL)
           {
             head->right=temp;
             temp->left=head;
             temp->right=head;
           }
+          
           else
           {
-            curr=temp;
+            curr=head;
             while(curr->right!=head)
             {
-                    curr=curr->right;
+                   curr=curr->right;
             }
             curr->right=temp;
             temp->left=curr;
@@ -54,15 +56,16 @@ void insertend()
 void deletend()
 {
     node *curr,*prev;
-    if(head!=NULL)
+    if(head==NULL)
         printf("list is empty");
     else{
         curr=head;
-        while(curr!=head)
+        while(curr->right!=head)
         {
             prev=curr;
             curr=curr->right;
         }
+        printf("deleted element is %d",curr->data);
         prev->right=head;
         curr->right=NULL;
         head->left=prev;
@@ -82,6 +85,7 @@ void display()
             printf("%d",curr->data);
             curr=curr->right;
         }
+         printf("%d",curr->data);
     }
 }
 int main()
