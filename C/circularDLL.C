@@ -33,7 +33,7 @@ void insertend()
          head=temp;
     else{
         if(head->right==NULL)
-          {
+          {}
             head->right=temp;
             temp->left=head;
             temp->right=head;
